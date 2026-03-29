@@ -63,6 +63,7 @@ class Player {
     this.sendData("joinRoom", {
       roomId: this.room.id,
       seed: this.room.seed,
+      time: this.room.time,
       self: this.meta(),
       players,
     });

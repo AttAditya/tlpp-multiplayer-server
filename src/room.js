@@ -5,6 +5,7 @@ class Room {
     this.id = id;
     this.seed = uuid();
     this.players = {};
+    this.startTime = Date.now();
     this.roomVacancy = 10;
   }
   
@@ -26,6 +27,11 @@ class Room {
     this.roomVacancy++;
 
     return true;
+  }
+
+  get time() {
+    const GAME_DAY_TIMESTAMP = 120000;
+    return Date.now() - this.startTime + GAME_DAY_TIMESTAMP;
   }
 }
 
