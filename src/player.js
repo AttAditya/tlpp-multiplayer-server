@@ -15,6 +15,8 @@ class Player {
       joinRoom: (...args) => this.joinRoom(...args),
       planeState: (...args) => this.planeState(...args),
     }
+
+    this.connectionSuccess();
   }
 
   meta() {
@@ -53,6 +55,13 @@ class Player {
 
   updateDetails({ name }) {
     this.name = name;
+  }
+
+  connectionSuccess() {
+    this.sendData("connectionSuccess", {
+      status: "success",
+      self: this.meta(),
+    });
   }
 
   joinRoom({ roomId }) {
